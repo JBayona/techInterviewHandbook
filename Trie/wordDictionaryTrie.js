@@ -12,8 +12,7 @@ search("pad") -> false
 search("bad") -> true
 search(".ad") -> true
 search("b..") -> true
-Note:
-You may assume that all words are consist of lowercase letters a-z.
+Note: You may assume that all words are consist of lowercase letters a-z.
 
 https://leetcode.com/problems/add-and-search-word-data-structure-design/description/
 */
