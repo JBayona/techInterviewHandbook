@@ -4,6 +4,7 @@ def bfs(matrix):
   # Check for an empty graph.
   if not matrix:
     return []
+  
   rows, cols = len(matrix), len(matrix[0])
   visited = set()
   directions = ((0, 1), (0, -1), (1, 0), (-1, 0))
