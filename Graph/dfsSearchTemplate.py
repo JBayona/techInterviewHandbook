@@ -10,7 +10,6 @@ def dfs(matrix):
   def traverse(i, j):
     if (i, j) in visited:
       return
-
     visited.add((i, j))
     # Traverse neighbors.
     for direction in directions:
