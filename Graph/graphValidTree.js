@@ -64,13 +64,12 @@ var validTree = function(n, edges) {
             return false;
         }
     }
-  
     // All the graph is connected and there is no cycle at this point
     return true;
-  }
+}
   
-  // Has cycle
-  function dfs(graph, visited, node, parent) {
+// Has cycle
+function dfs(graph, visited, node, parent) {
     let children = graph[node];
     for(let i = 0; i < children.length; i++) {
         let v = children[i];
@@ -82,11 +81,11 @@ var validTree = function(n, edges) {
         } else {
             // The node has been visited
             return true;
-      }
+        }
     }
     // The node has not been visited
     return false;
-  }
+}
 
 n = 5;
 edges = [[0, 1], [0, 2], [0, 3], [1, 4]]; // true
