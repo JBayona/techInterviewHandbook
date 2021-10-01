@@ -47,8 +47,7 @@ var longestConsecutive = function(nums) {
         hash[prevNumber] = true;
         seqCount++;
         prevNumber--;
-    }
-    
+    }    
     // Update result
     if(seqCount > result) {
         result = seqCount;
