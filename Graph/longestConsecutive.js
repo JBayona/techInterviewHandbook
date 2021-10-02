@@ -49,9 +49,7 @@ var longestConsecutive = function(nums) {
         prevNumber--;
     }    
     // Update result
-    if(seqCount > result) {
-        result = seqCount;
-    }
+    result = Math.max(seqCount, result);
   }
   return result;
 };
