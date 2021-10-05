@@ -78,7 +78,7 @@ var validTree = function(n, edges) {
 // Has cycle
 function dfs(graph, visited, node, parent) {
 
-  let children = graph[node];
+  let children = graph[node]; 
   for(let i = 0; i < children.length; i++) {
     let v = children[i];
     // Ignore if the node is coming from the father i.e [1,0], [0, 1]
