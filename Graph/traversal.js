@@ -1,6 +1,6 @@
 // DFS
 // Iterative
-const depthFirstPrint = (graph, source) => {
+let depthFirstPrint = (graph, source) => {
   const stack = [source];
   while(stack.length) {
     let currentNode = stack.pop();
@@ -12,10 +12,22 @@ const depthFirstPrint = (graph, source) => {
 }
 
 // Recursive
-const depthFirstPrint = (graph, source) => {
+depthFirstPrint = (graph, source) => {
   console.log(source);
   for(let neighbor of graph[source]) {
     depthFirstPrint(graph, neighbor);
+  }
+}
+
+// BFS
+const breadthFirstPrint = (graph, source) => {
+  const queue = [source];
+  while(queue.length) {
+    let currentNode = queue.shift();
+    console.log(currentNode);
+    for(let neighbor of graph[currentNode]) {
+      queue.push(neighbor);
+    }
   }
 }
 
@@ -29,4 +41,7 @@ const graph = {
 }
 
 // Graph and the starting point
+console.log('DFS');
 depthFirstPrint(graph, 'a');
+console.log('BFS');
+breadthFirstPrint(graph, 'a')
