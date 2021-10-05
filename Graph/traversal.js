@@ -1,3 +1,4 @@
+// DFS
 // Iterative
 const depthFirstPrint = (graph, source) => {
   const stack = [source];
