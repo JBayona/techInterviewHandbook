@@ -4,6 +4,7 @@ to destination.
 Assume the graph is acyclic.
 */
 
+// DFS
 const hasPath = (graph, src, dst) => {
   if(src === dst) {
     return true;
