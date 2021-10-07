@@ -5,12 +5,12 @@ Assume the graph is acyclic.
 */
 
 // DFS
-const hasPath = (graph, src, dst) => {
+const hasPathDFS = (graph, src, dst) => {
   if(src === dst) {
     return true;
   }
   for(let neighbor of graph[src]) {
-    if(hasPath(graph, neighbor, dst)) {
+    if(hasPathDFS(graph, neighbor, dst)) {
       return true;
     }
   }
@@ -28,4 +28,4 @@ const graph = {
 
 const src = 'f';
 const dst = 'k';
-console.log(hasPath(graph, src, dst));
+console.log(hasPathDFS(graph, src, dst));
