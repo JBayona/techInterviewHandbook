@@ -7,10 +7,10 @@ to destination.
 const undirectedPathDFS = (edges, src, dst) => {
   const graph = buildGraph(edges);
   let visited = new Set();
-  return hasPath(graph, visited, src, dst);
+  return hasPathDFS(graph, visited, src, dst);
 }
 
-const hasPath = (graph, visited, src, dst) => {
+const hasPathDFS = (graph, visited, src, dst) => {
   // Base cases
   if(src === dst) {
     return true;
@@ -22,7 +22,7 @@ const hasPath = (graph, visited, src, dst) => {
   visited.add(src);
 
   for(let neighbor of graph[src]) {
-    if(hasPath(graph, visited, neighbor, dst)) {
+    if(hasPathDFS(graph, visited, neighbor, dst)) {
       return true;
     }
   }
