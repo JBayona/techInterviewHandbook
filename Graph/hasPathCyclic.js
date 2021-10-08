@@ -3,6 +3,18 @@ Has path, given a graph and a source and destination node. Find if it´s possibl
 to destination.
 */
 
+/*
+{
+  i: [ 'j', 'k' ],
+  j: [ 'i' ],
+  k: [ 'i', 'm', 'l' ],
+  m: [ 'k' ],
+  l: [ 'k' ],
+  n: [ 'o' ],
+  o: [ 'n' ]
+}
+*/
+
 // DFS
 const undirectedPathDFS = (edges, src, dst) => {
   const graph = buildGraph(edges);
@@ -24,6 +36,36 @@ const hasPathDFS = (graph, visited, src, dst) => {
   for(let neighbor of graph[src]) {
     if(hasPathDFS(graph, visited, neighbor, dst)) {
       return true;
+    }
+  }
+  return false;
+}
+
+// BFS
+const undirectedPathBFS = (edges, src, dst) => {
+  const graph = buildGraph(edges);
+  let visited = new Set();
+  return hasPathBFS(graph, visited, src, dst);
+}
+
+const hasPathBFS = (graph, visited, src, dst) => {
+  let queue = [src];
+  while(queue.length) {
+    let size = queue.length;
+    for(let i = 0; i < size; i++) {
+      let node = queue.shift();
+      if(dst === node) {
+        return true;
+      }
+      // If the node has been visited, we 
+      // just need to skip it and look for others
+      if(visited.has(node)) {
+        continue;
+      }
+      visited.add(node);
+      for(let neighbor of graph[node]) {
+        queue.push(neighbor);
+      }
     }
   }
   return false;
@@ -55,3 +97,4 @@ const edges = [
 const src = "j";
 const dst = "m";
 console.log(undirectedPathDFS(edges, src, dst));
+console.log(undirectedPathBFS(edges, src, dst));
