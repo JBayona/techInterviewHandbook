@@ -2,7 +2,6 @@
 Has path, given a graph and a source and destination node. Find if it´s possible to travel from src
 to destination.
 */
-
 /*
 {
   i: [ 'j', 'k' ],
