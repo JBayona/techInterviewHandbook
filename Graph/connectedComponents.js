@@ -38,6 +38,37 @@ const explore = (graph, node, visited) => {
   return true;
 }
 
+// DFS Connnected components
+const connectedComponentsBFS = (graph) => {
+  const visited = new Set();
+  let count = 0;
+  for(let i = 1; i < Object.keys(graph).length; i++) {
+    if(!visited.has(i)) {
+      bfs(i, graph, visited);
+      count++;
+    }
+  }
+  return count;
+}
+
+const bfs = (node, graph, visited) => {
+  let queue = [];
+  queue.push(node);
+  while(queue.length) {
+    let size = queue.length;
+    for(let i = 0; i < size; i++) {
+      let node = queue.shift();
+      if(visited.has(node)) {
+        continue;
+      }
+      visited.add(node);
+      for(let neighbors of graph[node]) {
+        queue.push(neighbors);
+      }
+    }
+  }
+}
+
 const graph = {
   3: [],
   4: [6],
@@ -49,3 +80,4 @@ const graph = {
   2: [1]
 };
 console.log(connectedComponentsDFS(graph));
+console.log(connectedComponentsBFS(graph));
