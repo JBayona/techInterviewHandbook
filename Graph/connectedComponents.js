@@ -42,20 +42,24 @@ const explore = (graph, node, visited) => {
 const connectedComponentsBFS = (graph) => {
   const visited = new Set();
   let count = 0;
+  let largest = {n: 0}
+  // Check all the components in the graph
   for(let i = 1; i < Object.keys(graph).length; i++) {
     if(!visited.has(i)) {
-      bfs(i, graph, visited);
+      bfs(i, graph, visited, largest);
       count++;
     }
   }
+  console.log('Largest component: ', largest.n);
   return count;
 }
 
-const bfs = (node, graph, visited) => {
+const bfs = (node, graph, visited, largest) => {
   let queue = [];
   queue.push(node);
   while(queue.length) {
     let size = queue.length;
+    largest.n = Math.max(largest.n, size + 1); // + 1 to count the key node, which is a element in the component as well.
     for(let i = 0; i < size; i++) {
       let node = queue.shift();
       if(visited.has(node)) {
