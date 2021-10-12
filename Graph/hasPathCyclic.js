@@ -53,6 +53,7 @@ const hasPathBFS = (graph, visited, src, dst) => {
     let size = queue.length;
     for(let i = 0; i < size; i++) {
       let node = queue.shift();
+      // We found the node
       if(dst === node) {
         return true;
       }
