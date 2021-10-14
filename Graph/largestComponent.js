@@ -43,6 +43,7 @@ const largestComponentBFS = (graph) => {
   let result = 0;
 
   for (let node in graph) {
+    // This will be visited for each component
     if (!visited.has(node)) {
       let size = exploreBFS(node, graph, visited);
       result = Math.max(result, size);
