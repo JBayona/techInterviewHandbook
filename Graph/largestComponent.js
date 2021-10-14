@@ -13,7 +13,7 @@ Find the largest component
 }
 */
 
-const largestComponent = graph => {
+const largestComponentDFS = graph => {
   let visited = new Set();
   let size = 0;
   let result = 0;
@@ -47,4 +47,4 @@ const graph = {
   3: ['2', '4'],
   4: ['3', '2']
 };
-console.log(largestComponent(graph));
+console.log(largestComponentDFS(graph));
