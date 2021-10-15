@@ -10,7 +10,6 @@ edges = [
   ['w', 'v']
 ]
 */
-
 // Linear complexity
 // Time O(N)
 // Space O(N)
