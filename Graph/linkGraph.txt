@@ -1,2 +1,4 @@
 Freecodecamp:
 https://www.freecodecamp.org/news/graph-algorithms-for-technical-interviews/?fbclid=IwAR0ASs-cAkExVc8I7aKozWJO8iRWP0dNhmY_EYZLdphwlqJxAlhKE4iFttU
+
+Youtube: https://www.youtube.com/watch?v=tWVWeAqZ0WU&t=3726s
