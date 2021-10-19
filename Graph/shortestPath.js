@@ -1,7 +1,6 @@
 /*
 Find the shortest path between two nodes
 */
-
 /*
 edges = [
   ['w', 'x'],
