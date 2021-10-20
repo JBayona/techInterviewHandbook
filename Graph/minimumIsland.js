@@ -29,19 +29,20 @@ const minimumIsland = (grid) => {
 const explore = (grid, visited, row, col) => {
   let rowInbound = 0 <= row && row < grid.length;
   let colInbound = 0 <= col && col < grid.length;
-  
+  // If it´s out of bounds, return 0
   if(!rowInbound || !colInbound) {
     return 0;
   }
-
+  // If the grid is not water, return 0
   if(!grid[row][col]) {
     return 0;
   }
-
+  // If we already visited the element, return 0
   if(visited[row][col]) {
     return 0;
   }
   visited[row][col] = 1;
+  // Always start with one, which is the node
   let count = 1;
   count += explore(grid, visited, row + 1, col);
   count += explore(grid, visited, row - 1, col);
