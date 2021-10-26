@@ -4,6 +4,7 @@ Minimum island
 // Linear complexity
 // Time O(N * M) N = number of row, M = number of columns
 // Space O(N * M) N = number of row, M = number of columns
+// DFS.
 const minimumIsland = (grid) => {
   let ROW = grid.length;
   let COL = grid[0].length;
