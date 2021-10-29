@@ -1,3 +1,4 @@
+# DFS
 def dfs(matrix):
   # Check for an empty graph.
   if not matrix:
