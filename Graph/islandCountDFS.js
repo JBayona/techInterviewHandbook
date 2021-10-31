@@ -1,7 +1,5 @@
 /*
-Count the number of Islands
-*/
-/*
+Count the number of Islands.
 edges = [
   ['w', 'x'],
   ['x', 'y'],
