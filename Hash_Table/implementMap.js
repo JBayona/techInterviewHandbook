@@ -31,7 +31,7 @@ class Map {
 
     // Remove from the map
     delete this.map[key];
-    // Update the index of the swapped arrat
+    // Update the index of the swapped array
     this.map[this.arr[index]][1] = index;
   }
   getRandomKey() {
