@@ -63,8 +63,9 @@ WordDictionary.prototype.dfs = function(word, start, node) {
     let c = word[start];
     if(c === '.') {
         // Check all possible letters in the alphabet to find is there is a word
+        // Try to match every possibility iin the word
         for(let i = 0; i < 26;  i++) {
-            let letter = String.fromCharCode('a'.charCodeAt(0) + i); 
+            let letter = String.fromCharCode('a'.charCodeAt(0) + i);
             if(node && node.children[letter] !== null && this.dfs(word, start+1, node.children[letter])) {
                 return true;
             }
