@@ -54,7 +54,7 @@ WordDictionary.prototype.search = function(word) {
 };
 
 
-    WordDictionary.prototype.dfs = function(word, start, node) {
+WordDictionary.prototype.dfs = function(word, start, node) {
     // We need to verify the existence of node cause we
     // may be sending undefined values checking for the '.'
     if(start === word.length && node) {
