@@ -1,5 +1,5 @@
 /*
-Find the shortest path between two nodes
+Find the shortest path between two nodes.
 */
 /*
 edges = [
