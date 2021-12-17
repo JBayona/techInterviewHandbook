@@ -13,7 +13,6 @@ function reverseList(list){
   let current = list;
   let prev = null;
   let next;
-
   while(current){
     next = current.next;
     current.next = prev;
