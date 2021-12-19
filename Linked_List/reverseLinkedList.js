@@ -23,6 +23,8 @@ function reverseList(list){
 }
 
 // Recursive
+// Time O(N)
+// Space O(N)
 var reverseList = function(head) {
   // Check if we have more than one node
   if(head && head.next) {
