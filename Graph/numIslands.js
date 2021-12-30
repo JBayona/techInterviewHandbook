@@ -36,11 +36,11 @@ var numIslands = function(grid) {
 
 /*Función para hacer DFS a una matriz, considera a sus 8 vecinos*/
 function dfs(grid, row, column, visited){
-  //Vecinos Horizontal, Vertical y Diagonal
-  //let rowK = [-1, -1, -1, 0, 0, 1, 1, 1];
-  //let columnK = [-1, 0, 1, -1, 1, -1, 0, 1];
+  // Vecinos Horizontal, Vertical y Diagonal
+  // let rowK = [-1, -1, -1, 0, 0, 1, 1, 1];
+  // let columnK = [-1, 0, 1, -1, 1, -1, 0, 1];
 
-  //Vecinos Horizontal, Vertical
+  // Vecinos Horizontal, Vertical
   let rowK = [-1, 0, 0, 1];
   let columnK = [0, -1, 1, 0];
 
