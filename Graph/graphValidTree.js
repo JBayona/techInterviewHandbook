@@ -27,7 +27,7 @@ Para ser un árbol válido debe cumplitr con las siguientes características:
 */
 
 // DFS
-// Time: O(V) - V number of vertices
+// Time: O(V + E) - V number of vertices
 // Space: O(V)
 var validTree = function(n, edges) {
   // Corner case
@@ -78,7 +78,7 @@ var validTree = function(n, edges) {
 // Has cycle
 function dfs(graph, visited, node, parent) {
 
-  let children = graph[node]; 
+  let children = graph[node];
   for(let i = 0; i < children.length; i++) {
     let v = children[i];
     // Ignore if the node is coming from the father i.e [1,0], [0, 1]
@@ -87,7 +87,7 @@ function dfs(graph, visited, node, parent) {
       visited[v] = true;
       dfs(graph, visited, v, node);
     } else {
-      // The node has been visited
+      // The node has been visited so there´s a cycle
       return true;
     }
   }
