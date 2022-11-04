@@ -10,6 +10,14 @@ def depth_first_recursive_print(graph, source):
     print(source)
     for neighbor in graph[source]:
         depth_first_recursive_print(graph, neighbor)
+        
+def breadth_first_print(graph, source):
+    queue = [source]
+    while len(queue) > 0:
+        current = queue.pop(0)
+        print(current)
+        for neighbor in graph[current]:
+            queue.append(neighbor)
 
 graph = {
   'a': ['b', 'c'],
@@ -25,5 +33,5 @@ print('DFS');
 depth_first_print(graph, 'a');
 print('DFS Recursive');
 depth_first_recursive_print(graph, 'a');
-#console.log('BFS');
-#breadthFirstPrint(graph, 'a')
+print('BFS');
+breadth_first_print(graph, 'a')
