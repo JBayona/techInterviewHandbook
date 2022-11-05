@@ -10,10 +10,35 @@ edges = [
   ['w', 'v']
 ]
 */
+
 // Linear complexity
 // Time O(N)
 // Space O(N)
 const shortestPath = (edges, src, dst) => {
+  let graph = buildGraph(edges);
+  let visited = new Set();
+  let queue = [];
+  queue.push({ node: src, distance: 0 });
+  visited.add(src);
+  while (queue.length) {
+    let {node, distance} = queue.shift();
+    if (node === dst) {
+      return distance;
+    }
+    for (let neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push({node: neighbor, distance: distance + 1});
+      }
+    }
+  }
+  return "-1";
+};
+
+// Linear complexity
+// Time O(N)
+// Space O(N)
+const shortestPath_V2 = (edges, src, dst) => {
   let graph = buildGraph(edges);
   let visited = new Set();
   let queue = [];
