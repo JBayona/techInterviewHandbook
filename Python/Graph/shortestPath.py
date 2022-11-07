@@ -31,6 +31,7 @@ def build_graph(g):
         graph[to_node].append(from_node)
     return graph
 
+
 edges = [
   ["w", "x"],
   ["x", "y"],
