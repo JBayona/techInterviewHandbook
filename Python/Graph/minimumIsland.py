@@ -6,8 +6,8 @@ def min_island(grid):
     COL = len(grid[0])
     visited = [[0 for _ in range(len(grid[0]))] for _ in range(len(grid))]
     
-    min_val = 10000000
-    result = 10000000
+    min_val = float('inf')
+    result = float('inf')
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             if grid[i][j] == 1 and visited[i][j] == 0:
