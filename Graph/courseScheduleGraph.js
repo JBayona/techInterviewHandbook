@@ -26,52 +26,42 @@ https://leetcode.com/problems/course-schedule/
 var canFinish = function(numCourses, prerequisites) {
     let graph = [];
     // Create graph
-    for(let i = 0; i < numCourses; i++) {
-        graph[i] = [];
+    for (let i = 0; i < numCourses; i++) {
+      graph[i] = [];
     }
 
-    // Fill directed graph
-    for(let i = 0; i < prerequisites.length; i++) {
-        let node = prerequisites[i];
-        let from = node[0];
-        let to = node[1];
-        graph[from].push(to);
+    for (let i = 0; i < prerequisites.length; i++) {
+      let [from, to] = prerequisites[i];
+      graph[from].push(to);
     }
-    
-    console.log(graph);
-    // states:
-    // 0 - no visited
-    // 1 = visited but not processed
-    // 2 = processed
+
+    // 0 - unvisited
+    // 1 - processing
+    // 2 - visited
     let states = new Array(numCourses).fill(0);
-    for(let i = 0; i < numCourses; i++) {
-        if(states[i] === 0) {
-            // Check that there is no cycle
-            if(dfsHasCycle(graph, i, states)) {
-                return false;
-            }
+    for (let i = 0; i < numCourses; i++) {
+        // If there's a cycle on the graph
+        if (hasCycle(i, graph, states)) {
+            return false;
         }
     }
     // All the graph is connected and there is no cycle at this point
     return true;
 };
 
-// Has cycle
-function dfsHasCycle(graph, node, states) {
-    // Processing
-    states[node] = 1;
-
-    for(let vertex of graph[node]){
-        if(states[vertex] === 0) {
-            if(dfsHasCycle(graph, vertex, states)) {
-                return true;
-            }
-        }
-        if(states[vertex] === 1) {
-            return true;
-        }
+function hasCycle(node, graph, states) {
+    // This will give true if the node has a cycle
+    if (states[node] > 0) {
+        return states[node] !== 2;
     }
-    // Processed
-    states[node] = 2;
-    return false;
+  // Mark as processing
+  states[node] = 1;
+  for (let neighbor of graph[node]) {
+    if (hasCycle(neighbor, graph, states)) {
+        return true;
+    }
+  }
+  // Mark as processed
+  states[node] = 2;
+  return false;
 }
